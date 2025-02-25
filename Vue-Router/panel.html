@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      padding: 16px;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .input-group {
+      display: flex;
+      gap: 8px;
+    }
+    
+    input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 8px;
+    }
+    
+    button {
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f5f5f5;
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .sort-caret-wrapper {
+      display: inline-flex;
+      flex-direction: column;
+      margin-left: 5px;
+      height: 14px;
+      width: 14px;
+      vertical-align: middle;
+      position: relative;
+    }
+    
+    .sort-caret {
+      width: 0;
+      height: 0;
+      border: 5px solid transparent;
+      position: absolute;
+    }
+    
+    .sort-caret.ascending {
+      border-bottom-color: #c0c4cc;
+      top: -5px;
+    }
+    
+    .sort-caret.descending {
+      border-top-color: #c0c4cc;
+      bottom: -5px;
+    }
+    
+    .sort-caret.active {
+      border-bottom-color: #409eff;
+      border-top-color: #409eff;
+    }
+    
+    #stopTest {
+      background-color: #ff4444;
+    }
+    
+    #stopTest:hover {
+      background-color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="input-group">
+      <input type="text" id="baseUrl" placeholder="输入测试基础URL">
+      <div class="button-group">
+        <button id="getRoutes">获取接口</button>
+        <button id="testRoutes">测试接口</button>
+        <button id="copyRoutes">复制接口信息</button>
+        <button id="stopTest" style="background-color: #ff4444;">停止测试</button>
+      </div>
+    </div>
+    <div class="results">
+      <table id="resultsTable">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>路径</th>
+            <th>名称</th>
+            <th data-sort="status">
+              状态码
+              <span class="sort-caret-wrapper">
+                <i class="sort-caret ascending"></i>
+                <i class="sort-caret descending"></i>
+              </span>
+            </th>
+            <th data-sort="size">
+              响应大小
+              <span class="sort-caret-wrapper">
+                <i class="sort-caret ascending"></i>
+                <i class="sort-caret descending"></i>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="panel.js"></script>
+</body>
+</html> 

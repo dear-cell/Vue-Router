@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Vue Router",
+  "version": "1.0",
+  "description": "测试Vue路由接口 by:炜夜",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "devtools_page": "devtools.html"
+} 
